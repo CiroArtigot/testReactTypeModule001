@@ -1,7 +1,7 @@
 //import React, { useState } from 'react'
 
 import React from 'react'
-import CookiesModalSettings from '/cookieconsent.json'
+import CookiesModalSettings from './cookieconsent.json'
 
 type Props = {
   value?: string
