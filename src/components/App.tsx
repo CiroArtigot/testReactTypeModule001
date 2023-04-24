@@ -43,9 +43,7 @@ const MyCookieCM = ({ value = 'en-us' }: Props) => {
 
           `}
       </style>
-      <div className='w-10 h-10 bg-white text-black'>yyy</div>
       <div className='CCManager_cookie' id='CCManager_cookie'>
-        <div className='w-10 h-10'>XXX</div>
         <button
           type='button'
           id='CCManager_cookie_button'
@@ -67,7 +65,7 @@ const MyCookieCM = ({ value = 'en-us' }: Props) => {
       </div>
 
       <div
-        className="z-50 visible opacity-100 fixed bottom-0 right-0 w-full max-w-full bg-{{ $CookieMain['modal_background_color'] }} text-{{ $CookieMain['modal_color'] }} p-10 transition-opacity duration-1000 text-base font-sans leading-5 text-center"
+        className="z-50 visible opacity-100 fixed bottom-0 right-0 w-full max-w-full bg-{{ $CookieMain['modal_background_color'] }} text-{{ $CookieMain['modal_color'] }} p-5 transition-opacity duration-1000 text-base font-sans leading-5 text-center"
         id='CCManager_modal'
         style={{ display: 'none' }}
       >
@@ -82,13 +80,13 @@ const MyCookieCM = ({ value = 'en-us' }: Props) => {
           <path d='M0 0h24v24H0z' fill='none' />
           <path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z' />
         </svg>
-        <div className='mb-10'>{localeObj.first_sentence}</div>
-        <div className='mb-10'>{localeObj.second_sentence}</div>
+        <div className='mb-2'>{localeObj.first_sentence}</div>
+        <div className='mb-2'>{localeObj.second_sentence}</div>
 
         <div className='flex items-center justify-center'>
           <button
             type='button'
-            className='m-10 p-10 border-0 cursor-pointer bg-white
+            className='m-5 p-5 border-0 cursor-pointer bg-white
 '
             id='CCManager_modal_decline'
           >
@@ -97,7 +95,7 @@ const MyCookieCM = ({ value = 'en-us' }: Props) => {
           <button
             type='button'
             style={{ display: 'none' }}
-            className='m-10 p-10 border-0 cursor-pointer bg-white
+            className='m-5 p-5 border-0 cursor-pointer bg-white
 '
             id='CCManager_modal_stats'
           >
@@ -105,7 +103,7 @@ const MyCookieCM = ({ value = 'en-us' }: Props) => {
           </button>
           <button
             type='button'
-            className='m-10 p-10 border-0 cursor-pointer bg-white
+            className='m-5 p-5 border-0 cursor-pointer bg-white
 '
             id='CCManager_modal_accept'
           >
@@ -114,7 +112,7 @@ const MyCookieCM = ({ value = 'en-us' }: Props) => {
           <button
             type='button'
             id='CCManager_modal_config'
-            className='m-10 p-10 border-0 cursor-pointer bg-white flex flex-row flex-wrap items-center justify-center content-center
+            className='m-5 p-5 border-0 cursor-pointer bg-white flex flex-row flex-wrap items-center justify-center content-center
 
 '
           >
