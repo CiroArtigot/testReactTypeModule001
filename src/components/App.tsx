@@ -45,6 +45,7 @@ const MyCookieCM = ({ value = 'en-us' }: Props) => {
 
           `}
       </style>
+      <div className='w-10 h-10 bg-white text-black'>yyy</div>
       <div className='CCManager_cookie' id='CCManager_cookie'>
         <div className='w-10 h-10'>XXX</div>
         <button
