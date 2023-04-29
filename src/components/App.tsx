@@ -18,42 +18,17 @@ const MyCookieCM = ({ value = 'en-us' }: Props) => {
 
   return (
     <>
-      <style>
-        {`
-            #CCManager_modal_button_svg {
-              color: ${CookieMain.button_cookie_color};
-            }
-            #CCManager_modal.hidden{opacity:0; visibility:hidden; transition: all 1s ease-in;}
-
-            #CCManager_modal {
-              background-color: ${CookieMain.modal_background_color};
-              color: ${CookieMain.modal_color};
-            }
-            #CCManager_modal_decline, #CCManager_modal_stats {
-              color: ${CookieMain.buttons_color};
-              background-color: ${CookieMain.buttons_background_color};
-              font-size: 16px;
-            } 
-
-            #CCManager_modal_accept {
-                color: ${CookieMain.buttonall_color};
-                background-color: ${CookieMain.buttonall_background_color};
-                font-size: 16px;
-            } 
-
-          `}
-      </style>
       <div className='CCManager_cookie' id='CCManager_cookie'>
         <button
           type='button'
           id='CCManager_cookie_button'
-          className='m-8 fixed bottom-0 left-0 p-2 m-2 border-0 cursor-pointer bg-white'
+          className='fixed bottom-0 left-0 p-1 m-2 border-0 cursor-pointer bg-white rounded-full'
         >
           <svg
             id='CCManager_modal_button_svg'
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 512.002 512.002'
-            className='w-10 h-10 fill-current'
+            className='w-10 h-10 fill-current text-red-500'
           >
             <g>
               <g>
@@ -63,16 +38,15 @@ const MyCookieCM = ({ value = 'en-us' }: Props) => {
           </svg>
         </button>
       </div>
-
+      <span className='hidden'></span>
       <div
-        className="z-50 visible opacity-100 fixed bottom-0 right-0 w-full max-w-full bg-{{ $CookieMain['modal_background_color'] }} text-{{ $CookieMain['modal_color'] }} p-5 transition-opacity duration-1000 text-base font-sans leading-5 text-center"
+        className='z-50 fixed bottom-2 right-2 bg-black text-white p-2 transition-opacity duration-1000 text-base font-sans leading-5 text-center flex flex-col items-center justify-center content-center flex-wrap border-white border-2 rounded-md pl-5 pr-5 opacity-0 hidden'
         id='CCManager_modal'
-        style={{ display: 'none' }}
       >
         <svg
           id='closeams'
           xmlns='http://www.w3.org/2000/svg'
-          className='absolute top-20 right-20 cursor-pointer'
+          className='absolute fill-current absolute top-2 right-2 text-white cursor-pointer'
           height='24'
           viewBox='0 0 24 24'
           width='24'
@@ -80,64 +54,33 @@ const MyCookieCM = ({ value = 'en-us' }: Props) => {
           <path d='M0 0h24v24H0z' fill='none' />
           <path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z' />
         </svg>
-        <div className='mb-2'>{localeObj.first_sentence}</div>
-        <div className='mb-2'>{localeObj.second_sentence}</div>
-
-        <div className='flex items-center justify-center'>
+        <div className='pt-7 pb-3 text-sm'>
+          {localeObj.first_sentence}
+          <br />
+          {localeObj.second_sentence}
+        </div>
+        <div className='flex flex-row flex-wrap items-center justify-center content-center'>
           <button
             type='button'
-            className='m-5 p-5 border-0 cursor-pointer bg-white
-'
+            className='m-2 p-2 cursor-pointer bg-transparent border border-white rounded-md text-white hover:bg-white hover:text-black transition duration-500 ease-in-out'
             id='CCManager_modal_decline'
           >
             <span>{localeObj.button_necesary}</span>
           </button>
           <button
             type='button'
-            style={{ display: 'none' }}
-            className='m-5 p-5 border-0 cursor-pointer bg-white
-'
-            id='CCManager_modal_stats'
-          >
-            <span>{localeObj.button_only_stats}</span>
-          </button>
-          <button
-            type='button'
-            className='m-5 p-5 border-0 cursor-pointer bg-white
-'
+            className='m-2 p-2 cursor-pointer bg-transparent border border-white rounded-md text-white hover:bg-white hover:text-black transition duration-500 ease-in-out'
             id='CCManager_modal_accept'
           >
             <span>{localeObj.button_accept_all}</span>
           </button>
-          <button
-            type='button'
-            id='CCManager_modal_config'
-            className='m-5 p-5 border-0 cursor-pointer bg-white flex flex-row flex-wrap items-center justify-center content-center
-
-'
-          >
-            <svg
-              id='CCManager_modal_config_svg'
-              className='relative top-5 mr-3 -mt-11 fill-gray-700
-'
-              xmlns='http://www.w3.org/2000/svg'
-              height='24'
-              viewBox='0 0 24 24'
-              width='24'
-            >
-              <g>
-                <path d='M0,0h24v24H0V0z' fill='none' />
-                <path d='M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z' />
-              </g>
-            </svg>
-            <span>{localeObj.configuration_bottom}</span>
-          </button>
         </div>
-        <div id='CCManager_modal_state'></div>
+        <div className='pt-3 pb-3 text-sm'>
+          <a href={localeObj.more_info_link} className='no-underline hover:underline'>
+            {localeObj.more_info_text}
+          </a>
+        </div>
         <input type={'hidden'} id='gaid' value={CookieMain.ga_id} />
-        <input type={'hidden'} id='CCManager_modal_state1' value={localeObj.state1} />
-        <input type={'hidden'} id='CCManager_modal_state2' value={localeObj.state2} />
-        <input type={'hidden'} id='CCManager_modal_state3' value={localeObj.state3} />
       </div>
       <script src='/cookieconsent.js' />
     </>

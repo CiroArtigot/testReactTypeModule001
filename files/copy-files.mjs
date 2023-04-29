@@ -15,8 +15,11 @@ const scriptPath = resolve(dirname_, '..', 'files', 'cookieconsent.js')
 const publicPath = resolve(dirname_, '..', '..', '..', 'public', 'cookieconsent.js')
 const scriptPath2 = resolve(dirname_, '..', 'files', 'cookieconsent.json')
 const publicPath2 = resolve(dirname_, '..', '..', '..', 'cookieconsent.json')
+const scriptPath3 = resolve(dirname_, '..', 'files', 'cookieconsentaccept.js')
+const publicPath3 = resolve(dirname_, '..', '..', '..', 'cookieconsentaccept.js')
 
 // Copy the script file to the public folder
 copyFileSync(scriptPath, publicPath)
 copyFileSync(scriptPath2, publicPath2)
-console.log('Script file copied to public folder')
+copyFileSync(scriptPath3, publicPath3)
+//console.log('Script file copied to public folder')
